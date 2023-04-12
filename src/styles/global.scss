@@ -1,0 +1,12 @@
+@import "fonts.scss";
+
+body {
+	background-color: #F1F5F9;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.article-container {
+	margin: 0 auto;
+	max-width: 60vw;
+}
