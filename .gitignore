@@ -1,6 +1,7 @@
 # build output
 dist/
 .vercel/
+sanity/
 # generated types
 .astro/
 
