@@ -1,21 +1,22 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 import ThemeSwitcher from "./react/ThemeSwitcher";
+export const prerender = true;
 ---
 
 <header
-	class="border-b border-b-slate-950 p-4 dark:border-b-slate-600 dark:bg-slate-950"
+	class="border-b border-b-slate-950 p-4 dark:border-b-slate-100 dark:bg-slate-950"
 >
 	<nav class="container mx-auto">
-		<ul class="flex items-center justify-between gap-3">
-			<HeaderLink href="/">
+		<div class="flex items-center justify-between gap-3">
+			<a title="Circuit Speech homepage" href="/">
 				<img
 					style="filter: brightness(0) saturate(100%) invert(5%) sepia(16%) saturate(4622%) hue-rotate(204deg) brightness(97%) contrast(105%);"
 					class="dark:hidden"
 					src="/images/logo.svg"
 					width="104"
 					height="41"
+					alt="Circuit Speech logo"
 				/>
 				<img
 					width="104"
@@ -23,8 +24,8 @@ import ThemeSwitcher from "./react/ThemeSwitcher";
 					class="hidden dark:block"
 					src="/images/logo.svg"
 				/>
-			</HeaderLink>
-			<ThemeSwitcher client:only />
-		</ul>
+			</a>
+			<ThemeSwitcher client:only="react" />
+		</div>
 	</nav>
 </header>

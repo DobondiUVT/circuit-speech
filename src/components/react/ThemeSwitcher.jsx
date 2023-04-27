@@ -57,7 +57,7 @@ export default function ThemeSwitcher() {
 			}}
 			className={`${
 				isDarkTheme ? "bg-slate-200" : "bg-slate-950"
-			} relative inline-flex h-8 w-14 items-center rounded-full`}
+			} relative inline-flex h-8 w-14 items-center`}
 		>
 			<span className="sr-only">Change theme</span>
 			<span
@@ -65,7 +65,7 @@ export default function ThemeSwitcher() {
 					isDarkTheme
 						? "translate-x-[30px] bg-slate-500"
 						: "translate-x-[6px] bg-slate-100"
-				} absolute h-5 w-5 transform rounded-full transition`}
+				} absolute h-5 w-5 transform transition`}
 			/>
 			<div
 				className={`${
