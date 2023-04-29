@@ -1,0 +1,21 @@
+---
+import { Debug } from "astro/components";
+import BlogPost from "../../layouts/BlogPost.astro";
+import { fetchPostBySlug, fetchPosts } from "../../helpers/utilities";
+const PROJECT_ID = import.meta.env.PUBLIC_SANITY_PROJECT_ID;
+const DATASET = import.meta.env.PUBLIC_SANITY_DATASET;
+// const posts = (await fetchPosts(PROJECT_ID, DATASET)) as Posts;
+
+// const { slug } = Astro.params;
+// const currentPage = posts.find((post) => post.slug === slug);
+// if (!currentPage) return Astro.redirect("/404");
+const currentPage = await fetchPostBySlug(PROJECT_ID, DATASET, Astro.params.slug!);
+const { title, text } = currentPage;
+---
+
+<div>
+	<BlogPost title={title} description={text}>
+		<h1>{title}</h1>
+		<p>{text}</p>
+	</BlogPost>
+</div>

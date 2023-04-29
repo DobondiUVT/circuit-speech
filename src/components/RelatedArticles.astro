@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
-import FormattedDate from "./FormattedDate.astro";
-const posts = (await getCollection("blog")).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+import { fetchPosts } from "../helpers/utilities";
+
+const PROJECT_ID = import.meta.env.PUBLIC_SANITY_PROJECT_ID;
+const DATASET = import.meta.env.PUBLIC_SANITY_DATASET;
+const posts = (await fetchPosts(PROJECT_ID, DATASET)) as Posts;
 ---
 
 <div>
@@ -15,11 +15,9 @@ const posts = (await getCollection("blog")).sort(
 					<a href={`/blog/${post.slug}/`}>
 						<div class="border border-slate-950 p-4 dark:border-slate-100">
 							<div class="group-hover:text-slate-300 dark:text-slate-300 dark:group-hover:text-slate-700">
-								{post.data.title}
+								{post.title}
 							</div>
-							<div class="text-xs text-gray-400">
-								<FormattedDate date={post.data.pubDate} />
-							</div>
+							<div class="text-xs text-gray-400">{post._createdAt}</div>
 						</div>
 					</a>
 				</li>
