@@ -16,6 +16,6 @@ const { title, text } = currentPage;
 <div>
 	<BlogPost title={title} description={text}>
 		<h1>{title}</h1>
-		<p>{text}</p>
+		<div set:html={text}></div>
 	</BlogPost>
 </div>
